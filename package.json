@@ -1,0 +1,35 @@
+{
+  "name": "yaymukund-website",
+  "version": "1.0.0",
+  "description": "my website, duh",
+  "repository": "https://github.com/yaymukund/yaymukund-website",
+  "author": "Mukund Lakshman <yaymukund@gmail.com>",
+  "license": "UNLICENSED",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "ember build",
+    "start": "ember server",
+    "test": "ember test"
+  },
+  "devDependencies": {
+    "@glimmer/application": "^0.5.1",
+    "@glimmer/application-pipeline": "^0.7.0",
+    "@glimmer/blueprint": "^0.2.1",
+    "@glimmer/resolver": "^0.3.0",
+    "broccoli-asset-rev": "^2.5.0",
+    "ember-cli": "^2.14.0-beta.2",
+    "ember-cli-inject-live-reload": "^1.6.1",
+    "ember-cli-sass": "^6.2.0",
+    "ember-cli-uglify": "^1.2.0",
+    "regenerator-runtime": "^0.10.5",
+    "tslint": "^5.4.3",
+    "typescript": "^2.2.2"
+  },
+  "engines": {
+    "node": ">= 4.0"
+  },
+  "private": true
+}
