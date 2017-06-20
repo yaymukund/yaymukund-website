@@ -19,6 +19,7 @@
     "@glimmer/application-pipeline": "^0.7.0",
     "@glimmer/blueprint": "^0.2.1",
     "@glimmer/resolver": "^0.3.0",
+    "@types/navigo": "^4.0.1",
     "broccoli-asset-rev": "^2.5.0",
     "broccoli-image-resize": "^0.2.1",
     "broccoli-merge-trees": "^2.0.0",
@@ -27,7 +28,9 @@
     "ember-cli-inject-live-reload": "^1.6.1",
     "ember-cli-sass": "^6.2.0",
     "ember-cli-uglify": "^1.2.0",
+    "navigo": "^5.2.0",
     "regenerator-runtime": "^0.10.5",
+    "rollup-plugin-json": "^2.3.0",
     "tslint": "^5.4.3",
     "typescript": "^2.2.2"
   },
