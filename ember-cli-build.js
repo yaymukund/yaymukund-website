@@ -9,6 +9,16 @@ const stew = require('broccoli-stew');
 module.exports = function(defaults) {
   let app = new GlimmerApp(defaults, {
     // Add options here
+    fingerprint: {
+      exclude: ['assets/images/**/*']
+    },
+
+    outputPaths: {
+      app: {
+        js: 'assets/app.js',
+        css: 'assets/app.css'
+      }
+    }
   });
 
   app = app.toTree();
