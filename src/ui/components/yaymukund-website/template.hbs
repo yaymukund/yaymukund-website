@@ -4,18 +4,18 @@
 
 <div id="art">
   <div id="image-posts">
-    {{#each displayedImages key="@index" as |image|}}
+    {{#each displayedArts key="@index" as |art|}}
       <image-thumbnail
-        @image={{image}}
+        @art={{art}}
         @onclick={{action navigateTo}}
-        @selected={{is-equal currentArt image}}
+        @selected={{is-equal currentArt art}}
       />
     {{/each}}
   </div>
 
   {{#if currentArt}}
     <image-post
-      @image={{currentArt}}
+      @art={{currentArt}}
       @onclose={{action navigateHome}}
     />
   {{/if}}

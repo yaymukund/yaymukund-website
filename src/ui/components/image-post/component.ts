@@ -1,16 +1,25 @@
 import Component, { tracked } from '@glimmer/component';
-import { ART_DIR } from '../../../utils/constants';
 
 export default class ImagePost extends Component {
-  @tracked('args')
-  get fullUrl(): string {
-    let { name, ext } = this.args.image;
-    return `${ART_DIR}/${name}.${ext}`;
+  @tracked
+  isBuffered: boolean;
+
+  didInsertElement(): void {
+    this.buffer();
   }
 
-  @tracked('args')
-  get largeUrl(): string {
-    let { name, ext } = this.args.image;
-    return `${ART_DIR}/${name}-large.${ext}`;
+  didUpdate(): void {
+    this.buffer();
+  }
+
+  buffer() {
+    if (this.args.art.buffered) {
+      return;
+    }
+
+    this.isBuffered = false;
+    this.args.art.buffer().then(() => {
+      this.isBuffered = true;
+    });
   }
 };

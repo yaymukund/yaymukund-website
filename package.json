@@ -28,6 +28,7 @@
     "ember-cli-inject-live-reload": "^1.6.1",
     "ember-cli-sass": "^6.2.0",
     "ember-cli-uglify": "^1.2.0",
+    "image-size": "^0.5.5",
     "navigo": "^5.2.0",
     "regenerator-runtime": "^0.10.5",
     "tslint": "^5.4.3",

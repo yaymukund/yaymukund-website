@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const METADATA_PATH = 'src/ui/components/yaymukund-website/-utils/art-metadata.ts';
+const CONTENTS_REGEX = /^export default ((.|\n)*);/;
+
+let contents = fs.readFileSync(METADATA_PATH, { encoding: 'utf8' });
+contents = contents.replace(CONTENTS_REGEX, '$1');
+let art = eval(contents);
+console.log(JSON.stringify(art, null, 2));
