@@ -1,5 +1,22 @@
-<div id="image-posts">
-  {{#each displayedImages key="@index" as |image|}}
-    <image-thumbnail @image={{image}} />
-  {{/each}}
+<div id="about-me">
+  ♥ hii, i'm <a href={{avatarUrl}} title="photo of me">mukund</a>. they/them. i like to draw ♥
+</div>
+
+<div id="art">
+  <div id="image-posts">
+    {{#each displayedImages key="@index" as |image|}}
+      <image-thumbnail
+        @image={{image}}
+        @onclick={{action navigateTo}}
+        @selected={{is-equal currentArt image}}
+      />
+    {{/each}}
+  </div>
+
+  {{#if currentArt}}
+    <image-post
+      @image={{currentArt}}
+      @onclose={{action navigateHome}}
+    />
+  {{/if}}
 </div>

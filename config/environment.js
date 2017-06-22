@@ -2,9 +2,11 @@
 
 module.exports = function(environment) {
   let ENV = {
+    rootURL: '/',
     modulePrefix: 'yaymukund-website',
-    artDir: 'art/',
-    environment: environment
+    artDir: 'images/art/',
+    environment: environment,
+    locationType: 'auto',
   };
 
   return ENV;

@@ -1,2 +1,51 @@
 @import 'normalize';
 @include normalize();
+
+body {
+  width: 100vw;
+  background-color: #f3eef2;
+}
+
+#about-me {
+  margin: 5px 5px 0 5px;
+}
+
+#art {
+  display: flex;
+  align-items: flex-start;
+
+  .image-post {
+    margin: 5px 0;
+  }
+
+  #image-posts {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    width: 520px;
+    margin: 5px;
+
+    .image-thumbnail {
+      padding: 0 2px;
+      cursor: pointer;
+
+      &:hover {
+        filter: brightness(80%);
+      }
+
+      &.selected {
+        filter: brightness(50%);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  #art {
+    flex-direction: column;
+
+    .image-post {
+      margin: 0 5px;
+    }
+  }
+}

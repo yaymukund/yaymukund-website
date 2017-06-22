@@ -1,4 +1,8 @@
-<div class="image-post">
-  <img src="{{thumbnailUrl}}">
-  <p>{{@image.caption}}</p>
+<div class={{class}}>
+  <img
+    title="{{@image.caption}}"
+    alt="{{@image.caption}}"
+    src="{{thumbnailUrl}}"
+    onclick={{action @onclick @image}}
+  />
 </div>

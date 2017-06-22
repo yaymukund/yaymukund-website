@@ -5,18 +5,10 @@ const GlimmerApp = require('@glimmer/application-pipeline').GlimmerApp;
 const MergeTrees = require('broccoli-merge-trees');
 const BroccoliImageResize = require('broccoli-image-resize');
 const stew = require('broccoli-stew');
-const json = require('rollup-plugin-json');
 
 module.exports = function(defaults) {
   let app = new GlimmerApp(defaults, {
     // Add options here
-    rollup: {
-      plugins: [
-        json({
-          include: 'src/**/*.json'
-        })
-      ]
-    }
   });
 
   app = app.toTree();
@@ -29,6 +21,7 @@ module.exports = function(defaults) {
     withoutEnlargement: true,
     sizes: {
       default: [1080],
+      large: [null, 500],
       th: [100, 100]
     },
   });

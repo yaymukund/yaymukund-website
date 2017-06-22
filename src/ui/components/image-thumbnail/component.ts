@@ -1,6 +1,6 @@
 import Component, { tracked } from '@glimmer/component';
 
-const ART_DIR: string = '/art';
+import { ART_DIR } from '../../../utils/constants';
 
 export default class ImagePost extends Component {
   @tracked('args')
@@ -8,4 +8,10 @@ export default class ImagePost extends Component {
     let { name, ext } = this.args.image;
     return `${ART_DIR}/${name}-th.${ext}`;
   }
+
+  @tracked('args')
+  get class(): string {
+    return `image-thumbnail ${this.args.selected ? 'selected' : ''}`;
+  }
+
 };
