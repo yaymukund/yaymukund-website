@@ -42,7 +42,7 @@ export default class Art {
     Store.add(this);
   }
 
-  getUrl(suffix?: string): string {
+  getUrl(suffix: string = ''): string {
     let { name, ext } = this.meta;
     return `${ART_DIR}/${name}${suffix}.${ext}`;
   }
