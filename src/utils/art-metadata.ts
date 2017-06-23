@@ -1,5 +1,12 @@
 export default [
   {
+    "name": "wolverine",
+    "ext": "png",
+    "caption": "a mysterious wolvering bearing their teeth for a grin",
+    "width": 1080,
+    "height": 1080
+  },
+  {
     "name": "p-model",
     "ext": "png",
     "caption": "watercolor of the band p-model. from left to right: sadatoshi tainaka, susumu hirasawa, katsuhiko akiyama, yasumi tanaka",

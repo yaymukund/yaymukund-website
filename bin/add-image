@@ -1,9 +1,62 @@
 #!/usr/bin/env node
 const fs = require('fs');
-const METADATA_PATH = 'src/ui/components/yaymukund-website/-utils/art-metadata.ts';
+const path = require('path');
+const sizeOf = require('image-size');
+const readline = require('readline')
+
+const METADATA_PATH = 'src/utils/art-metadata.ts';
+const ART_DIR = 'public/assets/images/art/';
 const CONTENTS_REGEX = /^export default ((.|\n)*);/;
 
-let contents = fs.readFileSync(METADATA_PATH, { encoding: 'utf8' });
-contents = contents.replace(CONTENTS_REGEX, '$1');
-let art = eval(contents);
-console.log(JSON.stringify(art, null, 2));
+function getArt() {
+  let contents = fs.readFileSync(METADATA_PATH, { encoding: 'utf8' });
+  contents = contents.replace(CONTENTS_REGEX, '$1');
+  return eval(contents);
+}
+
+function getImageAttributes(imagePath) {
+  return path.parse(imagePath);
+}
+
+function getCaption(callback) {
+  let i = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  let caption;
+
+  i.question('caption? ', (response) => {
+    caption = response;
+    i.close();
+  });
+
+  i.on('close', () => {
+    callback(caption);
+  });
+}
+
+function copyFile(from, to) {
+  fs.writeFileSync(to, fs.readFileSync(from));
+}
+
+getCaption(caption => {
+  let attrs = getImageAttributes(process.argv[2]);
+  let metadata = getArt();
+  let dimensions = sizeOf(process.argv[2]);
+
+  let art = {
+    name: attrs.name,
+    ext: attrs.ext.substr(1),
+    caption: caption,
+    width: dimensions.width,
+    height: dimensions.height
+  };
+
+  metadata.unshift(art);
+
+  let json = JSON.stringify(metadata, null, 2)
+  fs.writeFileSync(METADATA_PATH, `export default ${json};\n`);
+  copyFile(process.argv[2], path.join(ART_DIR, attrs.base));
+
+  console.log(`added ${JSON.stringify(art, null, 2)}`);
+});

@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+ember build --env=production
+ssh yaymukund rm -rf /home/public/assets
+scp -r dist/* yaymukund:/home/public/
