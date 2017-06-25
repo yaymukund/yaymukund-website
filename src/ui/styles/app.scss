@@ -44,9 +44,15 @@ body {
   }
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 850px) {
   #art {
     flex-direction: column;
+
+    #image-posts {
+      flex-wrap: nowrap;
+      width: 100vw;
+      overflow-x: scroll;
+    }
 
     .image-post {
       margin: 0 5px;
