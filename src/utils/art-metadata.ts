@@ -1,5 +1,12 @@
 export default [
   {
+    "name": "birdie",
+    "ext": "png",
+    "caption": "ink painting of a lil' birdie",
+    "width": 633,
+    "height": 634
+  },
+  {
     "name": "wolverine",
     "ext": "png",
     "caption": "a mysterious wolvering bearing their teeth for a grin",
