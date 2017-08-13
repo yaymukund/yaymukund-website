@@ -2,6 +2,11 @@ import Component, { tracked } from '@glimmer/component';
 import Navigo from 'navigo';
 import { IMAGES_DIR, } from '../../../utils/constants';
 import Art, { Store }from '../../../utils/art';
+import {
+  onKeydown,
+  RIGHT_ARROW,
+  LEFT_ARROW
+} from '../../../utils/keyboard';
 
 // https://github.com/krasimir/navigo/issues/138
 const router = new Navigo(location.origin);
@@ -14,6 +19,16 @@ export default class YaymukundWebsite extends Component {
   constructor(options) {
     super(options);
     Store.loadData();
+
+    onKeydown(LEFT_ARROW, () => {
+      let art: Art = Store.before(this.currentArt);
+      this.navigateTo(art);
+    });
+
+    onKeydown(RIGHT_ARROW, () => {
+      let art: Art = Store.after(this.currentArt);
+      this.navigateTo(art);
+    });
 
     router.on({
       '/art/:name': params => {

@@ -27,6 +27,26 @@ export class Store {
     this.data.push(art);
   }
 
+  static after(art: Art): Art {
+    let i = this.data.indexOf(art);
+
+    if (i === (this.data.length - 1)) {
+      return art;
+    }
+
+    return this.data[i+1];
+  }
+
+  static before(art: Art): Art {
+    let i = this.data.indexOf(art);
+
+    if (i === 0) {
+      return art;
+    }
+
+    return this.data[i-1];
+  }
+
   static limit(count: number): Art[] {
     return this.data.slice(0, count);
   }
